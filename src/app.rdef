@@ -1,0 +1,40 @@
+resource app_signature "application/x-vnd.rainygirl-RInstallWizard";
+
+resource app_name_catalog_entry "x-vnd.rainygirl-RInstallWizard:System name:R InstallWizard";
+
+resource app_flags B_SINGLE_LAUNCH;
+
+resource app_version {
+	major	= 1,
+	middle	= 0,
+	minor	= 0,
+
+	/* 0 = development	1 = alpha		2 = beta
+	   3 = gamma		4 = golden master	5 = final */
+	variety	 = 5,
+	internal = 0,
+
+	short_info = "R InstallWizard",
+	long_info = "R InstallWizard - install Haiku packages from a file or a "
+		"GitHub release, and make packages from dropped programs"
+};
+
+// Tracker offers it in "Open with" for packages.
+resource file_types message {
+	"types" = "application/x-vnd.haiku-package"
+};
+
+/*
+ * A cardboard package box on the isometric axis the other R apps sit on,
+ * taped shut, with a green arrow coming down into it.
+ *
+ * Do not edit the bytes below. They come from tools/make_icon.py.
+ */
+resource vector_icon {
+	$"6E6369660701E2BA80FF01AB8D61FF01756042FF01C4965CFF01F6F0E2FF0124"
+	$"743CFF0140A85CFF0A0A0426384045405A264D0A045A384045405A5A4D0A0440"
+	$"2B5A38404526380A044B304F333540313D0A04313D3540354731450A04544348"
+	$"4A4851544B0A043A1F461F462B3A2B0A0333294D2940380A043C204420442B3C"
+	$"2B0A03352A4B2A4036070A010100000A020101000A000102000A03020304000A"
+	$"040105000A05020607000A0602080900"
+};
