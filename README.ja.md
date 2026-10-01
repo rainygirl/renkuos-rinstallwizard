@@ -22,9 +22,11 @@
 
 | Haiku | コマンド |
 | --- | --- |
-| 32 ビット x86 (x86_gcc2) | `pkgman add-repo https://pkgman.rainygirl.com/x86_gcc2`<br>`pkgman install rinstallwizard` |
+| 32 ビット x86 (x86_gcc2) | `pkgman add-repo https://pkgman.rainygirl.com/x86_gcc2`<br>`pkgman install rinstallwizard_x86` |
 | x86_64 | `pkgman add-repo https://pkgman.rainygirl.com/x86_64`<br>`pkgman install rinstallwizard` |
 | arm64 | `pkgman install rinstallwizard` (RENKU イメージにはリポジトリが登録済みです) |
+
+GitHub の各リリースには 3 つのアーキテクチャの `.hpkg` も添付されているので、R InstallWizard に `rainygirl/haiku-rinstallwizard` と入力して自分自身をインストールすることもできます。
 
 インストール後、Deskbar → Applications から **R InstallWizard** を起動してください。Tracker で `.hpkg` ファイルの **Open with** からも開けます。
 

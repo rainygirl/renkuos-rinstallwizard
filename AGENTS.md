@@ -101,6 +101,19 @@ Traps met on the way:
   handle any ELF.
 - Several Haiku host tools are directories (`rc/rc`), others files (`xres`).
 
+## Publishing
+
+- pkgman: `pkgman-repo/recipes/rinstallwizard.recipe`. Every architecture
+  only copies `dist/<arch>/RInstallWizard` and runs `resattr`/`addattr`, so
+  one Haiku machine packages all three (`scripts/build.sh --arch <a>`; arm64
+  with `REPO_VENDOR=RENKU PACKAGER="RENKU <renku@localhost>"`). x86_gcc2 is
+  the secondary-arch package `rinstallwizard_x86` (requires `haiku_x86`,
+  `lib:libssl_x86`, `lib:libcrypto_x86`). 1.0.0-1 was packaged in the RENKU
+  arm64 live VM, indexed with the container's `package_repo` and deployed
+  with `scripts/deploy.sh x86_gcc2 x86_64 arm64`.
+- GitHub: each release carries the three `.hpkg` files, which is also what
+  the app's own GitHub install looks for.
+
 ## Testing
 
 Done in QEMU on live ISOs, never on the user's machines:
