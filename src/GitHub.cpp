@@ -59,6 +59,17 @@ FileArchitecture(const std::string& fileName)
 }
 
 
+// The file name comes from whoever owns the repository (or the link) and is
+// used as a path in the download folder: no directories, no dot files.
+bool
+IsSafeFileName(const std::string& fileName)
+{
+	return !fileName.empty() && fileName[0] != '.'
+		&& fileName.find('/') == std::string::npos
+		&& fileName.find('\\') == std::string::npos;
+}
+
+
 bool
 IsAuxiliary(const std::string& fileName)
 {
@@ -93,7 +104,8 @@ FittingAssets(const JsonValue& release)
 		const JsonValue* size = asset.Find("size");
 		if (size != NULL)
 			package.size = (long long)size->AsDouble(-1);
-		if (!EndsWith(package.fileName, ".hpkg") || IsAuxiliary(package.fileName))
+		if (!EndsWith(package.fileName, ".hpkg") || IsAuxiliary(package.fileName)
+			|| !IsSafeFileName(package.fileName))
 			continue;
 		std::string arch = FileArchitecture(package.fileName);
 		if (arch == primary || arch == "any")
@@ -156,6 +168,11 @@ ResolvePackageUrl(const std::string& rawInput,
 		package.url = input;
 		std::string path = input.substr(0, input.find('?'));
 		package.fileName = path.substr(path.rfind('/') + 1);
+		if (!IsSafeFileName(package.fileName)) {
+			error = T("That is not a GitHub repository address. Use "
+				"https://github.com/owner/repository, or a link to an .hpkg file.");
+			return false;
+		}
 		packages.push_back(package);
 		description = package.fileName;
 		return true;

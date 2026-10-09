@@ -732,8 +732,13 @@ BuildPackages(const BuildRequest& request, std::vector<std::string>& outFiles,
 		std::string menuDir = stage + "/data/deskbar/menu/" + menu;
 		MakeDirs(menuDir);
 		std::string link = "../../../../" + mainRelative;
-		if (symlink(link.c_str(),
-				(menuDir + "/" + request.displayName).c_str()) != 0) {
+		// The entry is a file name: a '/' in the typed name would put it in
+		// a folder that does not exist, or outside the menu.
+		std::string entryName = request.displayName;
+		std::replace(entryName.begin(), entryName.end(), '/', '-');
+		if (entryName.empty() || entryName[0] == '.')
+			entryName = request.packageName;
+		if (symlink(link.c_str(), (menuDir + "/" + entryName).c_str()) != 0) {
 			error = T("Could not make the Deskbar entry.");
 			RemoveTree(stage);
 			return false;

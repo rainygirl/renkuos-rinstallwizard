@@ -353,8 +353,13 @@ GetString(const std::string& url, const std::vector<std::string>& headers,
 	std::string& body, int& status, std::string& error)
 {
 	body.clear();
+	// API answers are small; a server that keeps sending is cut off rather
+	// than allowed to fill memory.
+	const size_t kMaxBody = 32 * 1024 * 1024;
 	return Get(url, headers,
-		[&body](const char* data, size_t size) {
+		[&body, kMaxBody](const char* data, size_t size) {
+			if (body.size() + size > kMaxBody)
+				return false;
 			body.append(data, size);
 			return true;
 		},
