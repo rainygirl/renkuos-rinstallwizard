@@ -61,7 +61,7 @@ tools/cross-build.sh     arm64 / x86 / x86_64 cross builds
   architecture `source`), the way Haiku's own source packages are laid out.
 - **Translations are a table in the binary**, not catkeys: linkcatkeys hashes
   with plain `char` (signed on x86, unsigned on arm64) so one catkeys file does
-  not link everywhere (see haiku-korean-pack's tools/catfp.cpp). The language
+  not link everywhere (see renkuos-korean-pack's tools/catfp.cpp). The language
   is the first of en/it/ko/ja in `~/config/settings/Locale settings`
   (`"language"` strings), read directly: `BLocaleRoster` is in liblocale on
   r1beta4 and in libbe later, and the x86_64 build is linked against r1beta4.
