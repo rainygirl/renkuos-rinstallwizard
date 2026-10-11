@@ -26,7 +26,7 @@
 | x86_64 | `pkgman add-repo https://pkgman.rainygirl.com/x86_64`<br>`pkgman install rinstallwizard` |
 | arm64 | `pkgman install rinstallwizard` (RENKU 이미지에는 저장소가 이미 등록되어 있습니다) |
 
-GitHub 릴리스마다 세 아키텍처의 `.hpkg`도 올라가 있어서, R InstallWizard에 `rainygirl/haiku-rinstallwizard`를 입력해 자기 자신을 설치할 수도 있습니다.
+GitHub 릴리스마다 세 아키텍처의 `.hpkg`도 올라가 있어서, R InstallWizard에 `rainygirl/renkuos-rinstallwizard`를 입력해 자기 자신을 설치할 수도 있습니다.
 
 설치한 뒤 Deskbar → Applications에서 **R InstallWizard**를 실행하십시오. Tracker에서 `.hpkg` 파일의 **Open with** 메뉴로도 열 수 있습니다.
 

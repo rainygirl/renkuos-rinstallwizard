@@ -26,7 +26,7 @@ The window speaks English, Italian, Korean and Japanese, following the first of 
 | x86_64 | `pkgman add-repo https://pkgman.rainygirl.com/x86_64`<br>`pkgman install rinstallwizard` |
 | arm64 | `pkgman install rinstallwizard` (RENKU images have the repository already) |
 
-Every release on GitHub also carries the three `.hpkg` files, so R InstallWizard can install itself from `rainygirl/haiku-rinstallwizard`.
+Every release on GitHub also carries the three `.hpkg` files, so R InstallWizard can install itself from `rainygirl/renkuos-rinstallwizard`.
 
 Then start **R InstallWizard** from Deskbar → Applications. Tracker also offers it in **Open with** for `.hpkg` files.
 
