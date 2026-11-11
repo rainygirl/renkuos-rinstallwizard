@@ -47,4 +47,5 @@ MIT
 
 ## AI の利用について
 
-R InstallWizard の一部は AI コーディングツール (Anthropic の Claude) の支援を受けて開発されました。すべてのコードは作者がレビューし、テストしています。
+R InstallWizard の一部は AI コーディングツール (Anthropic の Claude) の支援を受けて開発しました。
+すべてのコードは作者がレビューし、テストしています。
